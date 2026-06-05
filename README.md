@@ -4,7 +4,7 @@ Este proyecto consiste en el desarrollo de una versión para consola del clásic
 
 ---
 
-## 🚀 Características del Proyecto
+##  Características del Proyecto
 
 El sistema está diseñado bajo estándares profesionales de desarrollo de software, aplicando los siguientes pilares de la computación:
 
@@ -16,7 +16,7 @@ El sistema está diseñado bajo estándares profesionales de desarrollo de softw
 
 ---
 
-## 🛠️ Arquitectura y Estructura de Paquetes
+##  Arquitectura y Estructura de Paquetes
 
 El código fuente se encuentra organizado dentro del directorio `src` estructurado de la siguiente forma:
 
@@ -29,7 +29,7 @@ El código fuente se encuentra organizado dentro del directorio `src` estructura
 * `util`: Herramientas auxiliares de conversión de datos como `CoordenadaUtils.java`.
 
 ---
-## 🧪 Pruebas Unitarias y TDD (Test-Driven Development)
+##  Pruebas Unitarias y TDD (Test-Driven Development)
 
 El proyecto adopta la metodología **TDD**, diseñando y ejecutando pruebas unitarias antes de refactorizar el código fuente final para garantizar la robustez matemática e informática de los algoritmos del Buscaminas.
 
@@ -40,12 +40,12 @@ El proyecto adopta la metodología **TDD**, diseñando y ejecutando pruebas unit
 
 ### Cómo ejecutar los Tests de forma local:
 1. En tu IDE (Eclipse / IntelliJ), haz clic derecho sobre la carpeta raíz `test`.
-2. Selecciona la opción **Run As** ➡️ **JUnit Test**.
+2. Selecciona la opción **Run As**  **JUnit Test**.
 3. Verifica en la pestaña de JUnit que todas las barras se muestren en verde (Green Bar), garantizando que el 100% de los componentes del software pasan las validaciones de control de calidad.
 
 ---
 
-## 🎮 Instrucciones de Uso y Mecánicas del Juego
+##  Instrucciones de Uso y Mecánicas del Juego
 
 Al iniciar la aplicación, se desplegará un menú principal interactivo en la consola con las siguientes opciones:
 
@@ -60,7 +60,7 @@ Al iniciar la aplicación, se desplegará un menú principal interactivo en la c
 
 ---
 
-## 💻 Requisitos del Sistema e Instalación
+##  Requisitos del Sistema e Instalación
 * **Java Development Kit (JDK):** Versión 17 o superior.
 * **IDE / Entorno:** Eclipse, IntelliJ IDEA, NetBeans o soporte para ejecución desde terminal.
 * **Librerías de Pruebas:** JUnit 5 (incluido en el entorno de desarrollo).
@@ -73,7 +73,7 @@ Al iniciar la aplicación, se desplegará un menú principal interactivo en la c
    git clone [https://github.com/oscar2026-iure/BuscaminasPOO.git](https://github.com/oscar2026-iure/BuscaminasPOO.git)
 
 ---
-## 👥 Metodología de Desarrollo y Colaboración
+##  Metodología de Desarrollo y Colaboración
 
 Para asegurar un desarrollo cohesivo, eficiente y cumplir con el enfoque de código limpio del proyecto, el equipo adoptó una metodología de trabajo basada en dos pilares fundamentales:
 
