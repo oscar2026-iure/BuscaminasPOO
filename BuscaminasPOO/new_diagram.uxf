@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>860</y>
+      <w>290</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>model::Tablero
+--
+-serialVersionUID = 1L: long
+-TAMANO = 10: int
+-MINAS = 10: int
+-casillas: CasillaBase[][]
+--
++Tablero(): ctor
+-inicializar(): void
+-crearCasillas(): void
+-colocarMinas(): void
+-calcularNumeros(): void
+-contarMinasAlrededor(int fila, int columna): int
++esValida(int fila, int columna): boolean
++getCasilla(int fila, int columna): CasillaBase
++marcarCasilla(int fila, int columna): void
++revelarTodo(): void
++descubrirCasilla(int fila, int columna): boolean
+-descubrirVacias(int fila, int columna): void
++contarCasillasSegurasDescubiertas(): int
++getTamano(): int
++getTotalSeguras(): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>1250</y>
+      <w>290</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>/model::CasillaBase/
+--
+-serialVersionUID = 1L: long
+#fila: int
+#columna: int
+#descubierta: boolean
+#marcada: boolean
+--
++CasillaBase(int fila, int columna): ctor
++descubrir(): void
++marcar(): void
++tieneMina(): boolean
++getFila(): int
++getColumna(): int
++isDescubierta(): boolean
++setDescubierta(boolean descubierta): void
++isMarcada(): boolean
++setMarcada(boolean marcada): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>510</y>
+      <w>270</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>model::Juego
+--
+-serialVersionUID = 1L: long
+-tablero: Tablero
+-jugador: Jugador
+-terminado: boolean
+-victoria: boolean
+--
++Juego(String nombreJugador): ctor
++descubrir(int fila, int columna): boolean
++marcar(int fila, int columna): void
+-verificarVictoria(): void
++isTerminado(): boolean
++isVictoria(): boolean
++getTablero(): Tablero
++getJugador(): Jugador
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>0</y>
+      <w>220</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>controller::JuegoController
+--
+-juego: Juego
+-vista: VistaConsola
+--
++JuegoController(): ctor
++iniciar(): void
+-procesarOpcion(int opcion): void
+-descubrirCasilla(): void
+-marcarCasilla(): void
+-guardarPartida(): void
+-cargarPartida(): void
+-finalizarJuego(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>350</y>
+      <w>290</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>view::VistaConsola
+--
+-scanner: Scanner
+--
++VistaConsola(): ctor
++leerTexto(String mensaje): String
++leerOpcion(): int
++mostrarMensaje(String mensaje): void
++mostrarTablero(Tablero tablero): void
+-obtenerSimbolo(CasillaBase casilla): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>1640</y>
+      <w>300</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>model::CasillaNormal
+--
+-serialVersionUID = 1L: long
+-minasAlrededor: int
+--
++CasillaNormal(int fila, int columna): ctor
++tieneMina(): boolean
++getMinasAlrededor(): int
++setMinasAlrededor(int minasAlrededor): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>510</y>
+      <w>260</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>model::Coordenada
+--
+-serialVersionUID = 1L: long
+-fila: int
+-columna: int
+--
++Coordenada(int fila, int columna): ctor
++getFila(): int
++getColumna(): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1000</x>
+      <y>870</y>
+      <w>230</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>model::Jugador
+--
+-serialVersionUID = 1L: long
+-nombre: String
+--
++Jugador(String nombre): ctor
++getNombre(): String
++setNombre(String nombre): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>1160</y>
+      <w>200</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+interfaces::Guardable
+--
+--
+~guardar(String archivo): void
+~cargar(String archivo): Object
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>1640</y>
+      <w>260</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>model::CasillaMina
+--
+-serialVersionUID = 1L: long
+--
++CasillaMina(int fila, int columna): ctor
++tieneMina(): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1490</x>
+      <y>320</y>
+      <w>250</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>exceptions::CasillaMarcadaException
+--
+-serialVersionUID = 1L: long
+--
++CasillaMarcadaException(): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1760</x>
+      <y>320</y>
+      <w>290</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>exceptions::CasillaYaDescubiertaException
+--
+-serialVersionUID = 1L: long
+--
++CasillaYaDescubiertaException(): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2070</x>
+      <y>320</y>
+      <w>280</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>exceptions::CoordenadaInvalidaException
+--
+-serialVersionUID = 1L: long
+--
++CoordenadaInvalidaException(): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>1160</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+interfaces::Descubrible
+--
+--
+~descubrir(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>320</y>
+      <w>290</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>persistence::GestorArchivos
+--
+--
++guardar(Juego juego, String archivo): void
++cargar(String archivo): Juego
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1200</x>
+      <y>320</y>
+      <w>250</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>util::CoordenadaUtils
+--
+--
++convertir(String texto): Coordenada
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>350</y>
+      <w>130</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>view::InicioJuego
+--
+--
++mostrar(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>350</y>
+      <w>120</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>view::Menu
+--
+--
++mostrar(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>160</y>
+      <w>160</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;350.0;10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>170</x>
+      <y>110</y>
+      <w>710</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;240.0;10.0;10.0;690.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>130</y>
+      <w>530</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;220.0;10.0;10.0;510.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>150</y>
+      <w>390</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;200.0;10.0;10.0;370.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>970</x>
+      <y>220</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1070</x>
+      <y>170</y>
+      <w>260</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>240.0;150.0;240.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1070</x>
+      <y>150</y>
+      <w>580</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>560.0;170.0;560.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1070</x>
+      <y>130</y>
+      <w>880</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>860.0;190.0;860.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1070</x>
+      <y>120</y>
+      <w>1160</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>1140.0;200.0;1140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>730</x>
+      <y>780</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>780</y>
+      <w>320</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;300.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>1210</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>1550</y>
+      <w>240</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;220.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>1550</y>
+      <w>130</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>1240</y>
+      <w>510</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;490.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>1260</y>
+      <w>280</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;260.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1120</x>
+      <y>380</y>
+      <w>210</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;130.0;190.0;10.0</additional_attributes>
+  </element>
+</diagram>
